@@ -1,0 +1,149 @@
+body {
+  font-family: sans-serif;
+  background: #f8f9fa;
+  padding: 20px;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#status-indicator {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.status-ok {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-unknown {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.tabs button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tabs button:hover {
+  background: #0056b3;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: monospace;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button.cancel {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+button.cancel:hover {
+  background-color: #c82333;
+}
+
+pre {
+  background: #f1f1f1;
+  padding: 10px;
+  white-space: pre-wrap;
+  margin-top: 10px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.troubleshooting {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.troubleshooting code {
+  background: #e9ecef;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.debug-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.debug-controls label {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.debug-controls select {
+  padding: 5px;
+  width: 100%;
+}
+
+#debugPrompt {
+  height: 80px;
+}
+
+.loading {
+  color: #666;
+  font-style: italic;
+}
+
+.dot {
+  opacity: 0;
+  animation: dotAnimation 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes dotAnimation {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.streaming-response {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

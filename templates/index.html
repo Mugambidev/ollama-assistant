@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ollama Assistant</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🧠 Ollama Local Assistant</h1>
+      <div id="status-indicator" class="status-unknown">Checking Ollama status...</div>
+
+      <div class="tabs">
+        <button onclick="showTab('write')">✍️ Writing</button>
+        <button onclick="showTab('code')">💻 Code</button>
+        <button onclick="showTab('docs')">📚 Doc Q&A</button>
+        <button onclick="showTab('debug')">🔧 Debug</button>
+      </div>
+
+      <div class="tab-content" id="write">
+        <h2>Writing Assistant</h2>
+        <textarea
+          id="writingInput"
+          placeholder="Enter your prompt..."
+        ></textarea>
+        <button onclick="sendPrompt('writing')">Ask</button>
+        <pre id="writingResponse"></pre>
+      </div>
+
+      <div class="tab-content" id="code" style="display: none">
+        <h2>Code Helper</h2>
+        <textarea
+          id="codeInput"
+          placeholder="Paste or describe your code..."
+        ></textarea>
+        <button onclick="sendPrompt('code')">Ask</button>
+        <pre id="codeResponse"></pre>
+      </div>
+
+      <div class="tab-content" id="docs" style="display: none">
+        <h2>Document Q&A</h2>
+        <input type="file" id="fileUpload" />
+        <input
+          type="text"
+          id="docQuestion"
+          placeholder="Ask a question about your document..."
+        />
+        <button onclick="sendPrompt('docs')">Ask</button>
+        <pre id="docsResponse"></pre>
+      </div>
+      
+      <div class="tab-content" id="debug" style="display: none">
+        <h2>Ollama API Debug</h2>
+        <div class="debug-controls">
+          <label>Model:</label>
+          <select id="debugModel">
+            <option value="mistral">mistral</option>
+            <option value="codellama">codellama</option>
+          </select>
+          
+          <label>Endpoint:</label>
+          <select id="debugEndpoint">
+            <option value="generate">generate</option>
+            <option value="chat">chat</option>
+          </select>
+          
+          <label>Prompt:</label>
+          <textarea id="debugPrompt">Hello, how are you?</textarea>
+          
+          <button onclick="debugOllama()">Send Request</button>
+        </div>
+        <pre id="debugResponse"></pre>
+      </div>
+      
+      <div class="troubleshooting">
+        <h3>Troubleshooting</h3>
+        <p>If you're seeing errors:</p>
+        <ol>
+          <li>Make sure Ollama is running with <code>ollama serve</code></li>
+          <li>Check that you have the required models: <code>ollama pull mistral</code> and <code>ollama pull codellama</code></li>
+          <li>For large documents or complex queries, please be patient</li>
+          <li>Try the Debug tab to directly test the Ollama API</li>
+        </ol>
+      </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
